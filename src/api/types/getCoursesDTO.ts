@@ -2,8 +2,8 @@ export interface GetCourseDTO {
   id: string;
   title: string;
   tags: string;
-  launchDate: string;
-  status: string;
+  launchDate: Date;
+  status: 'locked' | 'unlocked';
   description: string;
   duration: number;
   previewImageLink: string;
@@ -32,6 +32,6 @@ export interface GetCourseDTO {
   containsLockedLessons: boolean;
 }
 
-export interface GetCoursersDTO {
+export interface GetCoursesDTO {
   courses: GetCourseDTO[];
 }
