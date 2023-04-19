@@ -55,8 +55,8 @@ const CoursePage = () => {
             <div className={styles['list-content-title']}>
               <p>Course Content</p>
             </div>
+            <LessonsListCourse course={data} setLesson={setSelectedLesson} />
           </div>
-          <LessonsListCourse course={data} setLesson={setSelectedLesson} />
         </div>
       )}
     </div>

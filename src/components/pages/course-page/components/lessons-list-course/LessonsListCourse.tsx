@@ -11,31 +11,33 @@ export interface LessonsListCourseProps {
 const LessonsListCourse: React.FC<LessonsListCourseProps> = ({
   course,
   setLesson,
-}) => (
-  <>
-    {course.lessons
-      .slice()
-      .sort((s1, s2) => s1.order - s2.order)
-      .map(lesson =>
-        lesson.status === 'unlocked' ? (
+}) => {
+  const handleOnClick = (status: string, order: number) => {
+    if (status === 'unlocked') {
+      setLesson(order - 1);
+    }
+  };
+
+  return (
+    <>
+      {course.lessons
+        .slice()
+        .sort((s1, s2) => s1.order - s2.order)
+        .map(lesson => (
           <ListCourse
             key={lesson.id}
-            className={'list-content'}
+            className={
+              lesson.status === 'unlocked'
+                ? 'list-content'
+                : 'list-content-locked'
+            }
             order={lesson.order}
             title={lesson.title}
             duration={lesson.duration}
-            onClick={() => setLesson(lesson.order - 1)}
+            onClick={() => handleOnClick(lesson.status, lesson.order)}
           />
-        ) : (
-          <ListCourse
-            key={lesson.id}
-            className={'list-content-locked'}
-            order={lesson.order}
-            title={lesson.title}
-            duration={lesson.duration}
-          />
-        ),
-      )}
-  </>
-);
+        ))}
+    </>
+  );
+};
 export default LessonsListCourse;
