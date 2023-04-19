@@ -3,7 +3,7 @@ import { mount } from 'cypress/react18';
 
 import ListCourse from './ListCourse';
 
-describe('<ListCourse />', () => {
+describe('<list-course />', () => {
   const props = {
     order: 1,
     title: 'Test Course',
