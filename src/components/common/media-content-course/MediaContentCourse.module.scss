@@ -1,0 +1,88 @@
+
+.main-container{
+  width: 100%;
+}
+
+.image{
+  width: 100%;
+  height: 400px;
+}
+
+.title{
+  font-size: 24px;
+  font-weight: 700;
+  margin: 16px 0;
+}
+
+.description{
+  font-weight: 300;
+  padding-bottom: 16px;
+}
+
+.course-information{
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 200;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-around;
+}
+
+.skills{
+  div{
+    margin: 6px;
+    font-size: 14px;
+  }
+}
+
+
+.date-and-status{
+  display: flex;
+  flex-direction: column;
+  .status{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+  }
+}
+
+.rating{
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  align-items: center;
+  color: #b4690e;
+  padding-top: 8px;
+  font-size: 14px;
+  .course-rating{
+    margin: 8px;
+  }
+}
+
+@media screen and (max-width: 425px){
+  .course-information{
+    gap: 12px;
+    .rating{
+      font-size: 12px;
+    }
+  }
+  .title{
+    font-size: 18px;
+  }
+  .description{
+    font-size: 16px;
+  }
+  .skills{
+    div{
+      margin: 4px;
+      font-size: 12px;
+    }
+  }
+  .date-and-status{
+    font-size: 12px;
+    .status{
+      font-size: 12px;
+    }
+  }
+}
