@@ -2,17 +2,18 @@ import React from 'react';
 import { Chip, Rating } from '@mui/material';
 
 import Video from '@/components/common/video';
+import { dateTransform } from '@/utility';
 
 import styles from './MediaContentCourse.module.scss';
 
 export interface MediaContentCourseProps {
-  title?: string;
-  courseDescription?: string;
-  rating?: number;
-  launchDate?: Date;
-  status?: string;
-  skills?: string[];
-  videoLink?: string;
+  title: string;
+  courseDescription: string;
+  rating: number;
+  launchDate: Date;
+  status: string;
+  skills: string[];
+  videoLink: string;
 }
 
 const MediaContentCourse: React.FC<MediaContentCourseProps> = ({
@@ -24,10 +25,12 @@ const MediaContentCourse: React.FC<MediaContentCourseProps> = ({
   skills,
   videoLink,
 }) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const date = new Date(launchDate);
-  const stringDate = `${date.getFullYear()}/${date.getMonth()}/${date.getDay()}`;
+  const stringDate = dateTransform(new Date(launchDate));
+
+  const skillsSelection = skills?.map((skill, index) => (
+    <div key={index}>{skill}</div>
+  ));
+
   return (
     <div className={styles['main-container']}>
       {videoLink && <Video source={videoLink} hasControls={true} />}
@@ -38,20 +41,16 @@ const MediaContentCourse: React.FC<MediaContentCourseProps> = ({
           <Rating value={rating} precision={0.5} size="large" readOnly />
           <div className={styles['course-rating']}>Course Rating</div>
         </div>
-        <div className={styles['skills']}>
-          {skills?.map((skill, index) => (
-            <div key={index}>{skill}</div>
-          ))}
-        </div>
+        <div className={styles['skills']}>{skillsSelection}</div>
         <div className={styles['date-and-status']}>
           <div>{'Launch date: ' + stringDate}</div>
           <div className={styles['status']}>
             {'Status:'}
             <Chip
-              size={'small'}
+              size="small"
               label={status}
-              variant={'outlined'}
-              color={'primary'}
+              variant="outlined"
+              color="primary"
             />
           </div>
         </div>

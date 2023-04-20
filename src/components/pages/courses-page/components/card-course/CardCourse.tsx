@@ -3,8 +3,10 @@ import { Card, Chip, Rating } from '@mui/material';
 import Link from 'next/link';
 
 import Video from '@/components/common/video';
+import { fixImagePath } from '@/utility';
 
 import styles from './CardCourse.module.scss';
+
 export interface CardCourseProps {
   image: string;
   courseId: string;
@@ -14,8 +16,9 @@ export interface CardCourseProps {
   description: string;
   skills: string[];
   previewVideo: string;
-  lessonsCount: number;
+  lessonsCount?: number;
 }
+
 const CardCourse: React.FC<CardCourseProps> = ({
   image,
   courseId,
@@ -28,6 +31,11 @@ const CardCourse: React.FC<CardCourseProps> = ({
   lessonsCount,
 }) => {
   const [isVideo, setIsVideo] = useState(false);
+
+  const skillSelection = skills?.map((skill, index) => (
+    <p key={index}>{skill}</p>
+  ));
+
   const handleMouseEnter = () => {
     if (isVideo) {
       return <Video source={previewVideo} hasControls={false} />;
@@ -42,9 +50,9 @@ const CardCourse: React.FC<CardCourseProps> = ({
         onMouseLeave={() => setIsVideo(false)}
       >
         <img
-          src={image + '/cover.webp'}
+          src={fixImagePath(image)}
           className={styles['image']}
-          alt={'Course preview image'}
+          alt="Course preview image"
         />
         <div className={styles['video']}>{handleMouseEnter()}</div>
         <div className={styles['information']}>
@@ -65,11 +73,7 @@ const CardCourse: React.FC<CardCourseProps> = ({
             />
           </div>
           <div className={styles['description']}>{description}</div>
-          <div className={styles['skills']}>
-            {skills?.map((skill, index) => (
-              <p key={index}>{skill}</p>
-            ))}
-          </div>
+          <div className={styles['skills']}>{skillSelection}</div>
         </div>
         <div className={styles['lessons-count']}>Lessons: {lessonsCount}</div>
       </Card>

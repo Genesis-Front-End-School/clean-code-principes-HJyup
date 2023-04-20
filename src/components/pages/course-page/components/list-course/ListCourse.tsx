@@ -2,6 +2,8 @@ import React from 'react';
 import { TimelapseOutlined } from '@mui/icons-material';
 import LockClockOutlinedIcon from '@mui/icons-material/LockClockOutlined';
 
+import { splitDuration } from '@/utility';
+
 import styles from './ListCourse.module.scss';
 
 interface ListCourseProps extends React.ComponentPropsWithoutRef<'div'> {
@@ -18,8 +20,8 @@ const ListCourse: React.FC<ListCourseProps> = ({
   className,
   ...rest
 }) => {
-  const minutes = Math.floor(duration / 60);
-  const seconds = duration - minutes * 60;
+  const durationSplit = splitDuration(duration);
+
   return (
     <div className={styles[className]} {...rest}>
       <div className={styles['title']}>
@@ -27,14 +29,14 @@ const ListCourse: React.FC<ListCourseProps> = ({
         {className === 'list-content-locked' && (
           <LockClockOutlinedIcon
             data-cy="LockClockOutlinedIcon"
-            color={'disabled'}
-            fontSize={'small'}
+            color="disabled"
+            fontSize="small"
           />
         )}
       </div>
       <div className={styles['duration']}>
-        <TimelapseOutlined color={'disabled'} fontSize={'small'} />
-        {minutes + '.' + seconds + ' minutes to complete'}
+        <TimelapseOutlined color="disabled" fontSize="small" />
+        {durationSplit[0] + '.' + durationSplit[1] + ' minutes to complete'}
       </div>
     </div>
   );
