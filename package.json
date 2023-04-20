@@ -37,6 +37,13 @@
     "react-query": "^3.39.3",
     "sass": "^1.59.3",
     "scss": "^0.2.4",
+    "stylelint": "^15.5.0",
+    "stylelint-config-standard-scss": "^8.0.0",
+    "stylelint-scss": "^4.6.0",
+    "typescript": "^5.0.2"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.6",
     "typescript": "^5.0.2"
   },
   "devDependencies": {
