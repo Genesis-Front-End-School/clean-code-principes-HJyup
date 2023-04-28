@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { CircularProgress, Typography } from '@mui/material';
 import { Alert } from '@mui/material';
@@ -7,12 +6,12 @@ import { Pagination } from '@mui/material';
 import { CoursesAPI } from '@/api/courses-api/CoursesAPI';
 import Navbar from '@/components/common/navbar';
 import SlicedCardCourse from '@/components/pages/courses-page/components/sliced-card-course';
+import usePagination from '@/hooks/usePagination';
 
 import styles from './CoursesPage.module.scss';
 
 const CoursesPage = () => {
-  const [pagesCount, setPagesCount] = useState(0);
-
+  const [paginationCount, setPaginationCount] = usePagination();
   const {
     isLoading: isLoadingCourses,
     isError: isErrorCourses,
@@ -23,18 +22,11 @@ const CoursesPage = () => {
   });
 
   const coursesPerPagination = 10;
-  const elementsVisited = pagesCount * coursesPerPagination;
+  const elementsVisited = paginationCount * coursesPerPagination;
 
   const pagesNumber = courses
     ? Math.ceil(courses.courses.length / coursesPerPagination)
     : 0;
-
-  const handleChangeElement = (
-    event: React.ChangeEvent<unknown>,
-    value: number,
-  ) => {
-    setPagesCount(value - 1);
-  };
 
   if (isLoadingCourses) return <CircularProgress />;
 
@@ -60,7 +52,7 @@ const CoursesPage = () => {
               color="primary"
               size="small"
               className={styles['pagination']}
-              onChange={handleChangeElement}
+              onChange={setPaginationCount}
             />
           </div>
           <SlicedCardCourse
