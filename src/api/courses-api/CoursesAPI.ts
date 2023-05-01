@@ -7,7 +7,7 @@ export class CoursesAPI {
   static async getCourses(): Promise<GetCoursesDTO> {
     const { data } = await client.get(
       '/core/preview-courses',
-      getAuthorisationHeader(),
+      await getAuthorisationHeader(),
     );
     return data;
   }
@@ -15,7 +15,7 @@ export class CoursesAPI {
   static async getCourse(courseId: string): Promise<GetCourseDTO> {
     const { data } = await client.get(
       `/core/preview-courses/${courseId}`,
-      getAuthorisationHeader(),
+      await getAuthorisationHeader(),
     );
     return data;
   }
