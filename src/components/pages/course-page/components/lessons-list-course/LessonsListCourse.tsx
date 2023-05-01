@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GetCourseDTO } from '@/api/types/getCoursesDTO';
+import { GetCourseDTO, Lesson } from '@/api/types/getCoursesDTO';
 import ListCourse from '@/components/pages/course-page/components/list-course';
 
 export interface LessonsListCourseProps {
@@ -17,6 +17,8 @@ const LessonsListCourse: React.FC<LessonsListCourseProps> = ({
       setLesson(order - 1);
     }
   };
+  const statusClassName = (lesson: Lesson) =>
+    lesson.status === 'unlocked' ? 'list-content' : 'list-content-locked';
 
   return (
     <>
@@ -26,11 +28,7 @@ const LessonsListCourse: React.FC<LessonsListCourseProps> = ({
         .map(lesson => (
           <ListCourse
             key={lesson.id}
-            className={
-              lesson.status === 'unlocked'
-                ? 'list-content'
-                : 'list-content-locked'
-            }
+            className={statusClassName(lesson)}
             order={lesson.order}
             title={lesson.title}
             duration={lesson.duration}
