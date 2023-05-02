@@ -1,7 +1,7 @@
 export type GetCourseDTO = {
   id: string;
   title: string;
-  tags: string;
+  tags: string[];
   launchDate: Date;
   status: 'locked' | 'unlocked';
   description: string;
@@ -31,7 +31,7 @@ export type Lesson = {
   status: string;
   link: string;
   previewImageLink: string;
-  meta: string;
+  meta: string | null;
 };
 
 export type GetCoursesDTO = {
