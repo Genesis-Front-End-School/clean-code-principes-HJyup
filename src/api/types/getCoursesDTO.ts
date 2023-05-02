@@ -1,4 +1,4 @@
-export interface GetCourseDTO {
+export type GetCourseDTO = {
   id: string;
   title: string;
   tags: string;
@@ -18,20 +18,22 @@ export interface GetCourseDTO {
       previewImageLink: string;
     };
   };
-  lessons: {
-    id: string;
-    title: string;
-    duration: number;
-    order: number;
-    type: string;
-    status: string;
-    link: string;
-    previewImageLink: string;
-    meta: string;
-  }[];
+  lessons: Lesson[];
   containsLockedLessons: boolean;
-}
+};
 
-export interface GetCoursesDTO {
+export type Lesson = {
+  id: string;
+  title: string;
+  duration: number;
+  order: number;
+  type: string;
+  status: string;
+  link: string;
+  previewImageLink: string;
+  meta: string;
+};
+
+export type GetCoursesDTO = {
   courses: GetCourseDTO[];
-}
+};

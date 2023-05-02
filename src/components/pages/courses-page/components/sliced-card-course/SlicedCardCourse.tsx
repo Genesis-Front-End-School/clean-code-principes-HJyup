@@ -16,18 +16,7 @@ const SlicedCardCourse: React.FC<SlicedCardCourseProps> = ({
 }) => (
   <>
     {courses.courses.slice(visited, visited + elementsEach).map(course => (
-      <CardCourse
-        key={course.id}
-        courseId={course.id}
-        title={course.title}
-        description={course.description}
-        image={course.previewImageLink}
-        rating={course.rating}
-        skills={course.meta.skills}
-        tags={course.tags}
-        previewVideo={course.meta?.courseVideoPreview?.link}
-        lessonsCount={course.lessonsCount}
-      />
+      <CardCourse key={course.id} course={course} />
     ))}
   </>
 );
