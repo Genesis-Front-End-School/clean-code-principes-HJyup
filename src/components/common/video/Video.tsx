@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Hls from 'hls.js';
 
 import styles from './Video.module.scss';
@@ -9,7 +9,6 @@ interface VideoProps {
 }
 
 const Video: React.FC<VideoProps> = ({ source, hasControls }) => {
-  const [playbackRate, setPlaybackRate] = useState(1);
   const hls = new Hls();
   const videoEl = useRef<HTMLVideoElement>(null);
   const playbackRateChange = 0.2;
@@ -28,10 +27,13 @@ const Video: React.FC<VideoProps> = ({ source, hasControls }) => {
   }, [hls, source]);
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLVideoElement>) => {
-    if (e.key === ',' && playbackRate > playbackRateChange) {
-      setPlaybackRate(playbackRate - playbackRateChange);
+    if (!videoEl.current) return;
+
+    const rate = Number(videoEl.current.playbackRate.toFixed(1));
+    if (e.key === ',') {
+      videoEl.current.playbackRate = Math.max(rate - playbackRateChange, 0);
     } else if (e.key === '.') {
-      setPlaybackRate(playbackRate + playbackRateChange);
+      videoEl.current.playbackRate = Math.min(rate + playbackRateChange, 3);
     }
   };
 
@@ -45,12 +47,6 @@ const Video: React.FC<VideoProps> = ({ source, hasControls }) => {
     e.preventDefault();
     videoEl.current?.requestPictureInPicture();
   };
-
-  useEffect(() => {
-    if (videoEl.current) {
-      videoEl.current.playbackRate = Math.max(playbackRate, 0);
-    }
-  }, [playbackRate]);
 
   return (
     <div className={styles['video']}>

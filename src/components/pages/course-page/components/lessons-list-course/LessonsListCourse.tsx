@@ -28,7 +28,7 @@ const LessonsListCourse: React.FC<LessonsListCourseProps> = ({
         .map(lesson => (
           <ListCourse
             key={lesson.id}
-            role={'lesson'}
+            role="lesson"
             className={statusClassName(lesson)}
             order={lesson.order}
             title={lesson.title}

@@ -52,4 +52,17 @@ describe('Describe video component', () => {
 
     expect(video.playbackRate).toBe(0.8);
   });
+
+  it("It should be correct output when you press the ',' several times", () => {
+    render(videoWithControls);
+    const video = document.querySelector('video') as HTMLVideoElement;
+
+    expect(video.playbackRate).toBe(1);
+
+    for (let i = 0; i < 10; i++) {
+      fireEvent.keyUp(video, { key: ',' });
+    }
+
+    expect(video.playbackRate).toBe(0);
+  });
 });
