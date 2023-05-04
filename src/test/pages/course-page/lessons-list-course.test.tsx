@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import LessonsListCourse from '@/components/pages/course-page/components/lessons-list-course';
 import { testCourseData } from '@/test/const/testCourseData';
@@ -7,8 +7,9 @@ import { testCourseData } from '@/test/const/testCourseData';
 import '@testing-library/jest-dom';
 
 describe('Describe lessons list course', () => {
+  const spyFunc = jest.fn();
   beforeEach(() => {
-    render(<LessonsListCourse course={testCourseData} setLesson={jest.fn()} />);
+    render(<LessonsListCourse course={testCourseData} setLesson={spyFunc} />);
   });
 
   it('It should check that data are correspond to values', () => {
@@ -34,6 +35,16 @@ describe('Describe lessons list course', () => {
           ? 'list-content'
           : 'list-content-locked',
       );
+    });
+  });
+
+  it('It should have onClick on lessons', () => {
+    const lessons = screen.getAllByRole('lesson');
+
+    lessons.forEach(lesson => {
+      fireEvent.click(lesson);
+
+      expect(spyFunc).toHaveBeenCalled();
     });
   });
 });
