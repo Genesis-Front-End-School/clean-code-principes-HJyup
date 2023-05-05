@@ -28,7 +28,9 @@ const MediaContentCourse: React.FC<MediaContentCourseProps> = ({
   const stringDate = dateTransform(new Date(launchDate));
 
   const skillsSelection = skills?.map((skill, index) => (
-    <div key={index}>{skill}</div>
+    <div key={index} role={'skill'}>
+      {skill}
+    </div>
   ));
 
   return (

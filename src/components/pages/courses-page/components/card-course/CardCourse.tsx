@@ -31,6 +31,7 @@ const CardCourse: React.FC<CardCourseProps> = ({ course }) => {
     <Link href={`/course/${courseCard.id}`} className={styles['link']}>
       <Card
         className={styles['card']}
+        role={'card'}
         onMouseEnter={() => setIsVideo(true)}
         onMouseLeave={() => setIsVideo(false)}
       >
