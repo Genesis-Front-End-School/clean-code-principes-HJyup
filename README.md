@@ -49,6 +49,25 @@ You can also use the `right mouse button` to switch to Picture in Picture mode.
 The entire website has been checked with tests written by Cypress. To view the test results, go to the **cypress folder** 
 and a video with test statistics can be found for each component.
 
+## Architecture
+The website is built on the Next.js framework. The website is divided into components that are located in the **components folder**.
+`/page` folder only has link to components and `/api` folder has all the api calls. The `/styles` folder has global styles.
+All Architecture could be divided into several layers: **Main View, Components, Application, Infrastructure**.
+![Project Usage.png](..%2FDesktop%2FProject%20Usage.png)
+* **Main View** - represents only `/pages` folder.
+* **Components** - represents `/components` folder. (this part is divided into core and common)
+* **Application** - represents class that could be used to access data from `/api` folder.
+* **Utils** - represent `/utils` folder.
+* **Hooks** - represent `/hooks` folder.
+* **Infrastructure** - represents `/api` folder.
+
+## Layers System
+![Layers System.png](..%2FDesktop%2FLayers%20System.png)
+
+## Website Flow
+This part represents how our systems are connected to each other.
+![Site Flow.png](..%2FDesktop%2FSite%20Flow.png)
+
 ## Author Details
 The website was created by Danyil Butov. 
 [HJK - GitHub.](https://github.com/HJyup)
