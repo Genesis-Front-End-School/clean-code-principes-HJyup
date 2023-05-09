@@ -11,7 +11,6 @@ import usePagination from '@/hooks/usePagination';
 import styles from './CoursesPage.module.scss';
 
 const CoursesPage = () => {
-  const [paginationCount, setPaginationCount] = usePagination();
   const {
     isLoading: isLoadingCourses,
     isError: isErrorCourses,
@@ -21,12 +20,12 @@ const CoursesPage = () => {
     refetchOnWindowFocus: false,
   });
 
-  const coursesPerPagination = 10;
-  const elementsVisited = paginationCount * coursesPerPagination;
-
-  const pagesNumber = courses
-    ? Math.ceil(courses.courses.length / coursesPerPagination)
-    : 0;
+  const [
+    elementsVisited,
+    pagesNumber,
+    coursesPerPagination,
+    setPaginationCount,
+  ] = usePagination(courses);
 
   if (isLoadingCourses) return <CircularProgress />;
 

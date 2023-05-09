@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-const usePagination = () => {
+import { GetCoursesDTO } from '@/api/types/getCoursesDTO';
+
+const usePagination = (courses: GetCoursesDTO | undefined) => {
   const [pagesCount, setPagesCount] = useState(0);
 
   const handleChangeElement = (
@@ -10,7 +12,19 @@ const usePagination = () => {
     setPagesCount(value - 1);
   };
 
-  return [pagesCount, handleChangeElement] as const;
+  const coursesPerPagination = 10;
+  const elementsVisited = pagesCount * coursesPerPagination;
+
+  const pagesNumber = courses
+    ? Math.ceil(courses.courses.length / coursesPerPagination)
+    : 0;
+
+  return [
+    elementsVisited,
+    pagesNumber,
+    coursesPerPagination,
+    handleChangeElement,
+  ] as const;
 };
 
 export default usePagination;
