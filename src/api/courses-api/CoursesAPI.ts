@@ -1,4 +1,4 @@
-import { client } from '@/api/courses-api/instance';
+import { client } from '@/api/instance';
 import { GetCourseDTO, GetCoursesDTO } from '@/api/types/getCoursesDTO';
 
 import { getAuthorisationHeader } from '../utils';

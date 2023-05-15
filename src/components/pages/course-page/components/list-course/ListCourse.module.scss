@@ -48,3 +48,15 @@
     color: black;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .list-content{
+    p{
+      color: #E5E5E5;
+    }
+
+    svg{
+      color: white;
+    }
+  }
+}
