@@ -49,6 +49,30 @@ You can also use the `right mouse button` to switch to Picture in Picture mode.
 The entire website has been checked with tests written by Cypress. To view the test results, go to the **cypress folder** 
 and a video with test statistics can be found for each component.
 
+## Architecture
+The website is built on the Next.js framework. The website is divided into components that are located in the **components folder**.
+`/page` folder only has link to components and `/api` folder has all the api calls. The `/styles` folder has global styles.
+All Architecture could be divided into several layers: **Main View, Components, Application, Infrastructure**.
+
+<img width="598" alt="Project Usage" src="https://github.com/Genesis-Front-End-School/clean-code-principes-HJyup/assets/89708817/5271c919-35f2-4b19-8152-bab3a8cb871b">
+
+* **Main View** - represents only `/pages` folder.
+* **Components** - represents `/components` folder. (this part is divided into core and common)
+* **Application** - represents class that could be used to access data from `/api` folder.
+* **Utils** - represent `/utils` folder.
+* **Hooks** - represent `/hooks` folder.
+* **Infrastructure** - represents `/api` folder.
+
+## Layers System
+<img width="885" alt="Layers System" src="https://github.com/Genesis-Front-End-School/clean-code-principes-HJyup/assets/89708817/402896a7-5a22-4c95-be9b-8f0ff8ad618b">
+
+
+## Website Flow
+This part represents how our systems are connected to each other.
+
+<img width="714" alt="Site Flow" src="https://github.com/Genesis-Front-End-School/clean-code-principes-HJyup/assets/89708817/b66a4bde-3eb8-462b-8b3d-f3e674e42d5d">
+
+
 ## Author Details
 The website was created by Danyil Butov. 
 [HJK - GitHub.](https://github.com/HJyup)
