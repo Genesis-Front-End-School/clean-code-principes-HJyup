@@ -8,16 +8,25 @@
 }
 
 .page-information{
+  transition: var(--transition);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin: 36px 0;
   width: 90%;
   padding-bottom: 1%;
+  color: var(--primary-text-color);
 
   p{
     font-size: 18px;
     font-weight: 300;
+    color: var(--secondary-text-color);
+  }
+
+  .pagination{
+    button{
+      color: var(--primary-text-color);
+    }
   }
 }
 
@@ -46,21 +55,5 @@
 
   .pagination{
     margin: 8px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .page-information{
-    color: #E5E5E5;
-
-    p{
-      color: #A3A3A3;
-    }
-
-    .pagination {
-      button{
-        color: white;
-      }
-    }
   }
 }

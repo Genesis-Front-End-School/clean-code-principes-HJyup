@@ -2,6 +2,8 @@ import React from 'react';
 import { AppBar } from '@mui/material';
 import { Toolbar } from '@mui/material';
 
+import SwitchComponent from '@/components/common/switch';
+
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -14,7 +16,13 @@ const Navbar: React.FC<NavbarProps> = ({
   <div className={styles['navbar-container']}>
     <AppBar position={'fixed'} className={styles['navbar']}>
       <Toolbar className={styles['navbar-container']}>
-        <div className={styles['title']}>Study Lounge</div>
+        <div className={styles['title']}>
+          Study Lounge
+          <div className={styles['dark-theme']}>
+            Dark Theme
+            <SwitchComponent />
+          </div>
+        </div>
         <div className={styles['subtitle']}>{text}</div>
       </Toolbar>
     </AppBar>

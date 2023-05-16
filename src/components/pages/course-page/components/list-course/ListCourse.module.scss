@@ -12,7 +12,6 @@
   .title{
     display: flex;
     justify-content: space-between;
-    color: rgb(204 204 204);
   }
 
   .duration{
@@ -45,18 +44,10 @@
     font-size: 16px;
     font-weight: 400;
     padding: 1%;
-    color: black;
+    color: var(--secondary-text-color)
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  .list-content{
-    p{
-      color: #E5E5E5;
-    }
-
-    svg{
-      color: white;
-    }
+  svg{
+    color: var(--primary-text-color)
   }
 }

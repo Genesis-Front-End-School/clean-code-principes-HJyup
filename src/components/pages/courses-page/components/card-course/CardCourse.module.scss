@@ -1,10 +1,12 @@
 .card {
+  transition: var(--transition);
   display: flex;
   flex-direction: column;
   height: 520px;
   width: 360px;
   margin-bottom: 18px;
   padding-bottom: 10px;
+  background-color: var(--card-color);
 
   .image{
     width: 100%;
@@ -19,7 +21,7 @@
   &:hover {
     transition: all 0.3s ease-out;
     box-shadow: 0 4px 8px rgb(38 38 38 / 20%);
-    background-color: white;
+    background-color: var(--color-hover);
     max-height: 600px;
     height: 550px;
     overflow-y: hidden;
@@ -46,6 +48,7 @@
     align-items: center;
     justify-content: center;
     min-height: 65px;
+    color: var(--primary-text-color);
   }
 }
 
@@ -56,10 +59,12 @@
   align-items: center;
   font-weight: 200;
   font-size: 12px;
+  color: var(--secondary-text-color);
 }
 
 .information{
   padding: 8px;
+  color: var(--secondary-text-color);
 
   .tags{
     display: flex;

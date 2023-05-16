@@ -1,6 +1,7 @@
 
 .main-container{
   width: 100%;
+  color: var(--primary-text-color);
 }
 
 .image{
@@ -91,16 +92,6 @@
 
     .status{
       font-size: 12px;
-    }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .main-container, .rating{
-    color: #E5E5E5;
-
-    svg{
-      color: #E5E5E5;
     }
   }
 }
