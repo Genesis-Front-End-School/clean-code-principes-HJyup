@@ -8,16 +8,25 @@
 }
 
 .page-information{
+  transition: var(--transition);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin: 36px 0;
   width: 90%;
   padding-bottom: 1%;
+  color: var(--primary-text-color);
 
   p{
     font-size: 18px;
     font-weight: 300;
+    color: var(--secondary-text-color);
+  }
+
+  .pagination{
+    button{
+      color: var(--primary-text-color);
+    }
   }
 }
 

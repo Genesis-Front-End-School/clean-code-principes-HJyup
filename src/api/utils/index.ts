@@ -1,4 +1,4 @@
-import { client } from '@/api/courses-api/instance';
+import { client } from '@/api/instance';
 
 const getToken = async () => {
   return await client.get('/auth/anonymous?platform=subscriptions');
