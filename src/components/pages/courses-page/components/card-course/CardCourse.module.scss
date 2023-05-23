@@ -1,0 +1,163 @@
+.card {
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  width: 360px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  background-color: var(--card-color);
+
+  .image{
+    width: 100%;
+  }
+
+  .video{
+    width: 360px;
+    height: 250px;
+    display: none;
+  }
+
+  &:hover {
+    transition: all 0.3s ease-out;
+    box-shadow: 0 4px 8px rgb(38 38 38 / 20%);
+    background-color: var(--color-hover);
+    max-height: 600px;
+    height: 550px;
+    overflow-y: hidden;
+
+    .image{
+      display: none;
+    }
+
+    .video{
+      display: block;
+      height: 250px;
+    }
+
+    .title{
+      display: none;
+    }
+  }
+
+  .information .title{
+    display: flex;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 65px;
+    color: var(--primary-text-color);
+  }
+}
+
+.lessons-count{
+  margin: auto 12px 12px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 200;
+  font-size: 12px;
+  color: var(--secondary-text-color);
+}
+
+.information{
+  padding: 8px;
+  color: var(--secondary-text-color);
+
+  .tags{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10%;
+    margin: 6px;
+  }
+
+  .description{
+    word-break: break-word;
+    margin: 12px;
+  }
+
+  .skills{
+    font-size: 14px;
+    margin: 12px;
+    font-weight: 200;
+  }
+
+  .lessons{
+    margin-top: auto;
+  }
+}
+
+@media screen and (width <= 785px){
+  .card {
+    width: 240px;
+    height: 280px;
+
+    .image {
+      width: 240px;
+      height: 100px;
+      margin-bottom: 8px;
+    }
+
+    .video{
+      width: 240px;
+      height: 130px;
+    }
+  }
+
+  .information{
+    padding: 10px;
+
+    .title{
+      font-size: 12px;
+      min-height: 32px;
+    }
+
+    .description{
+      display: none;
+    }
+
+    .skills{
+      display: none;
+    }
+  }
+
+  .chip{
+    width: 80px;
+    height: 25px;
+    font-size: 8px;
+  }
+
+  .rating{
+    width: 300px;
+  }
+
+  .lessons-count{
+    font-size: 9px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card{
+    background-color: #292929;
+    color: #E5E5E5;
+
+    .description, .skills{
+      color: #A3A3A3;
+    }
+
+    .rating{
+      color: #E5E5E5;
+    }
+
+    &:hover{
+      background-color: #4B4B4B;
+
+      .description, .skills{
+        color: #E5E5E5;
+      }
+    }
+  }
+}
