@@ -17,6 +17,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: yarn install
+        env:
+          NODE_AUTH_TOEKN: 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
         run: yarn install
       - name: test
         run: yarn test
