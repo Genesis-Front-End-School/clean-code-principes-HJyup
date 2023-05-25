@@ -18,9 +18,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Create NPMRC
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ENV_TOKEN }}" >> ~/.npmrc
-          echo "@hjyup:registry=https://npm.pkg.github.com" >> ~/.npmrc
-          echo 'registry "https://registry.yarnpkg.com"' >> ~/.yarnrc
+          echo registry=https://registry.npmjs.org/ >> ~/.npmrc
+          echo @HJyup:registry=https://npm.pkg.github.com/ >> ~/.npmrc
+          echo //npm.pkg.github.com/:_authToken=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 >> ~/.npmrc
       - name: yarn install
         run: yarn install
       - name: test
