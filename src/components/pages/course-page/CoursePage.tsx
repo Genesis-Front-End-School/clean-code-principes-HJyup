@@ -4,7 +4,7 @@ import { Alert, AlertTitle, CircularProgress } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import { CoursesAPI } from '@/api/courses-api/CoursesAPI';
-import Navbar from '@/components/common/navbar';
+import { Navbar } from '@HJyup/study-lounge-lib';
 import LessonsListCourse from '@/components/pages/course-page/components/lessons-list-course';
 import MediaContentCourse from '@/components/pages/course-page/components/media-content-course';
 

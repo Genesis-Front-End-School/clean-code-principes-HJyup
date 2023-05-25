@@ -1,7 +1,7 @@
 import React from 'react';
 import { Chip, Rating } from '@mui/material';
 
-import Video from '@/components/common/video';
+import { Video } from '@HJyup/study-lounge-lib';
 import { dateTransform } from '@/utility';
 
 import styles from './MediaContentCourse.module.scss';

@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@HJyup/study-lounge-lib@^0.1.1":
+  version "0.1.1"
+  resolved "https://npm.pkg.github.com/download/@HJYup/study-lounge-lib/0.1.1/1400c8af35929c329fcbc0828d4e24e74f3d3059#1400c8af35929c329fcbc0828d4e24e74f3d3059"
+  integrity sha512-+mNs4Ru0gLYdpfv2zJ193tIvvvosOU8cHo5iZFi6STwmhpsO/eB3w6t0IcTqn1SLXcAN/DbUVGe53SR+P1H0TQ==
+
 "@adobe/css-tools@^4.0.1":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.2.0.tgz#e1a84fca468f4b337816fcb7f0964beb620ba855"

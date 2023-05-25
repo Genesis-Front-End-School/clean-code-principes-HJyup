@@ -4,7 +4,7 @@ import { Alert } from '@mui/material';
 import { Pagination } from '@mui/material';
 
 import { CoursesAPI } from '@/api/courses-api/CoursesAPI';
-import Navbar from '@/components/common/navbar';
+import { Navbar } from '@HJyup/study-lounge-lib';
 import SlicedCardCourse from '@/components/pages/courses-page/components/sliced-card-course';
 import usePagination from '@/hooks/usePagination';
 
