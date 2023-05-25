@@ -21,5 +21,7 @@ jobs:
           scope: '@HJyup'
       - name: yarn install
         run: yarn install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ENV_TOKEN }}
       - name: test
         run: yarn test
