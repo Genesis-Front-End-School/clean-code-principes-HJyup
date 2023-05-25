@@ -20,7 +20,7 @@ jobs:
         run: |
           echo registry=https://registry.npmjs.org/ >> ~/.npmrc
           echo @HJyup:registry=https://npm.pkg.github.com/ >> ~/.npmrc
-          echo //npm.pkg.github.com/:_authToken=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 >> ~/.npmrc
+          echo //npm.pkg.github.com/:_authToken=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 >> ~/.npmrc
       - name: yarn install
         run: yarn install
       - name: test
