@@ -3,7 +3,7 @@ import { Card, Chip, Rating } from '@mui/material';
 import Link from 'next/link';
 
 import { GetCourseDTO } from '@/api/types/getCoursesDTO';
-import Video from '@/components/common/video';
+import { Video } from '@HJyup/study-lounge-lib';
 import { getCourseCardData } from '@/components/pages/courses-page/components/card-course/utils/getCourseCardData';
 import { fixImagePath } from '@/utility';
 
