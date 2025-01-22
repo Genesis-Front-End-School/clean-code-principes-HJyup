@@ -1,0 +1,69 @@
+.page-container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 84px 0;
+  align-items: center;
+}
+
+.alert{
+  margin: 5px;
+  background-color: var(--alert-color);
+  color: var(--primary-text-color);
+
+  svg{
+    color: var(--primary-text-color);
+  }
+}
+
+.card-course-container{
+  display: flex;
+  width: 98%;
+
+  .video-container{
+    width: 75%;
+    padding: 0 8px 8px;
+  }
+
+  .information-container{
+    width: 25%;
+  }
+}
+
+.list-content-title{
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  color: var(--primary-text-color);
+  
+  p{
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  border-bottom: thin solid rgb(209 215 221 / 25500%);
+}
+
+@media screen and (width <= 768px){
+  .card-course-container{
+    flex-direction: column;
+
+    .video-container{
+      width: 100%;
+    }
+
+    .information-container{
+      width: 100%;
+      border-left: none;
+    }
+  }
+
+  .list-content-title{
+    margin-top: 24px;
+  }
+
+  .alert{
+    font-size: 12px;
+  }
+}
